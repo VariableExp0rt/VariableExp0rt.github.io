@@ -4,7 +4,7 @@ title: About
 permalink: /about/
 ---
 
-Some information about you!
+Detection engineer, k8s enthusiast and all round container fiend. Also asks why(?) too frequently.
 
 ### More Information
 
@@ -12,4 +12,4 @@ A place to include any other types of information that you'd like to include abo
 
 ### Contact me
 
-[email@domain.com](mailto:email@domain.com)
+[fatalmetrics@protonmail.com](mailto:email@domain.com)
