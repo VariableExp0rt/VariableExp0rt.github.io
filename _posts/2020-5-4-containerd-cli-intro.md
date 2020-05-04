@@ -25,7 +25,7 @@ Well, what _can_ we do with ctr? It offers some basic functionality to identify 
 
 `ctr --namespace k8s.io containers ls`
 
-The output will look pretty familiar if you've used kubectl get or docker ps.
+The output will look pretty familiar if you've used "kubectl get" or "docker ps".
 
 `ctr --namespace k8s.io containers info 0b41398e452dd3eb18a2137b85bc270df63c3c826eeb3cace55ba40b43cc9e21 | jq`
 
@@ -40,15 +40,19 @@ This may be limited to KIND, but I found that when I was attempting to use kubec
 ##### Exec-ing into a container is a little bit more difficult.
 
 1. Get a list of all tasks from a container listed above
-..`ctr --namespace k8s.io tasks ls`
-..From this output we have a list of tasks, these are just "processes" and these make up our Pods. I tried to spawn a shell from each of those tasks, while some failed, a few succeeded.
+
+`ctr --namespace k8s.io tasks ls`
+
+From this output we have a list of tasks, these are just "processes" and these make up our Pods. I tried to spawn a shell from each of those tasks, while some failed, a few succeeded.
 
 2. Execute a task, which is essentially a Pod, the atomic unit of Kubernetes. Importantly, it wouldn't let me execute with only the task hash below, it needs the corresponding process ID.
-..`ctr --namespace k8s.io tasks exec --exec-id 16537 --tty e791befbe4f877cf96ee044c111e3428958120f519f17dfb3e2e0b696b6d6666 /bin/sh`
+
+`ctr --namespace k8s.io tasks exec --exec-id 16537 --tty e791befbe4f877cf96ee044c111e3428958120f519f17dfb3e2e0b696b6d6666 /bin/sh`
 
 3. I tried to imagine if I did not have kubectl logs at my disposal so the following directory helped here.
-..`docker exec -ti <control plane hash> /bin/sh \
-..cd /var/log/pods/<pod-to-be-inspected>`
+
+`docker exec -ti <control plane hash> /bin/sh \
+cd /var/log/pods/<pod-to-be-inspected>`
 
 I've included some of the output below for brevity. 
 
@@ -64,7 +68,7 @@ etcd	       etcd-3.3.17  etcdctl-3.1.12  invoke-rc.d		  runlevel
 etcd-3.0.17    etcd-3.4.3   etcdctl-3.2.24  migrate		  update-rc.d
 etcd-3.1.12    etcdctl	    etcdctl-3.3.17  migrate-if-needed.sh
 ```
-...*Example output from spawning a shell into the etcd pod*
+   *Example output from spawning a shell into the etcd pod*
 
 ```
 ctr --namespace k8s.io tasks ls
@@ -88,5 +92,5 @@ f904f71946f33feb9e5360f5c61cb3ce72dc6e79e493676093baa1edcbbcb89a    963     RUNN
 9fb6f1f477983b8495c9e02d8e13ad03f8d845a12bf325b42abbc4194d4fe958    860     RUNNING
 a96d89027c98ed12daeb1ce326b3c45544cc24508a67617e293d7cc3482194ab    1254    RUNNING
 ```
-...*Example of task listing output*
+   *Example of task listing output*
 
