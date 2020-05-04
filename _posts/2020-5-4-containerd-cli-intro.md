@@ -3,6 +3,8 @@ layout: post
 title: A quick and dirty introduction to interacting with containerd
 ---
 
+_This article will be updated as I have more time to explore some more features of ctr :)
+
 ### Environment; KIND clusters
 
 This blog post is to reinforce some of the things I learnt about [ctr](https://github.com/containerd/containerd), the command-line interface for containerd, a container runtime interface that is the intermediary component between Docker and Runc. In this post, I'm using an incredibly simple setup on my local machine, in the form of a KIND cluster. KIND (Kubernetes in Docker) is a great way to begin learning about the different components of k8s, although I found it to be a little limited in some aspects, due to the contraints of *ctr* which I'll describe below.
