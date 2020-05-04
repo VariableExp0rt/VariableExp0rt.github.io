@@ -3,7 +3,7 @@ layout: post
 title: A quick and dirty introduction to interacting with containerd
 ---
 
-_This article will be updated as I have more time to explore some more features of ctr :)
+*This article will be updated as I have more time to explore some more features of ctr* :)
 
 ### Environment; KIND clusters
 
