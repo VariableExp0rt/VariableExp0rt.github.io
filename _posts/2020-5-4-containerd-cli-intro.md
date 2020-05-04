@@ -1,6 +1,6 @@
 ---
 layout: post
-title: A quick and dirty introduction to interacting with *containerd*
+title: A quick and dirty introduction to interacting with containerd
 ---
 
 ### Environment; KIND clusters
@@ -31,7 +31,7 @@ The output will look pretty familiar if you've used "kubectl get" or "docker ps"
 
 You'll notice that that this is essentially the yaml file used to create the pod, just in a slightly different format but could easily be reconstructed. This most closely the "-o json" in the kubectl command.
 
-Have you noticed that we've provided a namespace flag to the ctr command? I was at first stumped when I thought that listing containers with a namespace would implicitly mean "--all-namespaces", however it does not work this way for ctr. There is more information on the topic and implementation [here](https://github.com/containerd/containerd/blob/master/docs/namespaces.md), but the benefits here are that it makes multi-tenancy easier.
+Have you noticed that we've provided a namespace flag to the ctr command? I was at first stumped when I thought that listing containers with a namespace would implicitly mean "--all-namespaces", however it does not work this way for ctr. There is more information on the topic and implementation [here](https://github.com/containerd/containerd/blob/master/docs/namespaces.md), but the benefits here are that it makes multi-tenancy easier*.
 
 #### Inspecting running containers
 
@@ -93,4 +93,6 @@ f904f71946f33feb9e5360f5c61cb3ce72dc6e79e493676093baa1edcbbcb89a    963     RUNN
 a96d89027c98ed12daeb1ce326b3c45544cc24508a67617e293d7cc3482194ab    1254    RUNNING
 ```
    *Example of task listing output*
+   
+
 
