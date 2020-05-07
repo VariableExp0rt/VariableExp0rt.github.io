@@ -143,8 +143,7 @@ So by supplying the configuration file to containerd, when it talks to runc it u
 
 ` sudo ./main` 
 
-![A sHeLl][logo]
-[logo]: (https://github.com/VariableExp0rt/VariableExp0rt.github.io/tree/master/images/shell.png)
+![A sHeLl](https://raw.githubusercontent.com/VariableExp0rt/VariableExp0rt.github.io/master/images/shell.png)
 
 I found that without executing this as root, you'll have a hard time connecting to the containerd.sock socket (waaaaaah). By now you'll be staring at a no doubt blinking cursor, and if you type whatever your usual command is when dropping into a shell (ls?) then you'll see we're actually in the container (I know the functionality is a bit rough, so I'm still figuring out how to get a fully interactive tty).
 
