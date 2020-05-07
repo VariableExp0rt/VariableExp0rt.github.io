@@ -139,9 +139,10 @@ Note: I actually changed the "terminal" option to "false", which seemed to be ne
 So by supplying the configuration file to containerd, when it talks to runc it uses the mappings to essentially generate this file on the fly, configures your container to this specification and starts it (provided you supply a task to it... and start it...). Runc is the container runtime used by containerd, more on that topic, which I'll be looking into too, is [here](https://www.opencontainers.org/)
 
 ` go build main.go`
+
 ` sudo ./main` 
 
-![A sHeLl](https://github.com/VariableExp0rt/VariableExp0rt.github.io/tree/master/images/Screenshot 2020-05-07 at 15.44.25.png)
+![A sHeLl](https://github.com/VariableExp0rt/VariableExp0rt.github.io/tree/master/images/shell.png)
 
 I found that without executing this as root, you'll have a hard time connecting to the containerd.sock socket (waaaaaah). By now you'll be staring at a no doubt blinking cursor, and if you type whatever your usual command is when dropping into a shell (ls?) then you'll see we're actually in the container (I know the functionality is a bit rough, so I'm still figuring out how to get a fully interactive tty).
 
