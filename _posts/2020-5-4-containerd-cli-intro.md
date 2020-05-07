@@ -120,11 +120,12 @@ The program I used is [here](https://github.com/VariableExp0rt/containerd-golang
 ...snip...
 ```
 What does this mean? Line by line, I've described that below;
-.. 1. Initialise the container metadata object with the client method .NewContainer()
-.. 2. Set the context, as in the example, we did previously for client.Pull()
-.. 3-4. Set the Image to be used by the container, in mine I left it "image" but you could easily give it the name "nginx"
-.. 5. A new snapshot is set for any storage that will be used by the container
-.. 6. Set the oci.SpecOpts you might need (which are mapped to the oci-runtime specs in this package [here](https://godoc.org/github.com/opencontainers/runtime-spec/specs-go)).
+
+1. Initialise the container metadata object with the client method .NewContainer()
+2. Set the context, as in the example, we did previously for client.Pull()
+3-4. Set the Image to be used by the container, in mine I left it "image" but you could easily give it the name "nginx"
+5. A new snapshot is set for any storage that will be used by the container
+6. Set the oci.SpecOpts you might need (which are mapped to the oci-runtime specs in this package [here](https://godoc.org/github.com/opencontainers/runtime-spec/specs-go)).
 
 Why have I used a WithSpecFromFile option? Well, because I was having some issues figuring out what options and use (and of course the occassional type error ;) because I'm still learning here) I realised that you could also use *runc* to generate a spec for you in json! For me, I needed a default spec so I passed the following command;
 
@@ -136,13 +137,14 @@ From wherever you ran that command, and perhaps it's easier from within your pro
 
 Note: I actually changed the "terminal" option to "false", which seemed to be needed to pass through. I wondered why, and this post I found (credits to the author) seems to do well at explaining Standard IO in the context of runc. [more reading!](https://medium.com/@Mark.io/runc-terminal-and-run-modes-c677d7027335)
 
-So by supplying the configuration file to containerd, when it talks to runc it uses the mappings to essentially generate this file on the fly, configures your container to this specification and starts it (provided you supply a task to it... and start it...). Runc is the container runtime used by containerd, more on that topic, which I'll be looking into too, is [here](https://www.opencontainers.org/)
+So by supplying the configuration file to containerd, when it talks to runc it uses the mappings to essentially generate this file on the fly, configures your container to this specification and starts it (provided you supply a task to it... and start it...). Runc is the container runtime used by containerd, more on that topic, which I'll be looking into too, is [here](https://www.opencontainers.org/).
 
 ` go build main.go`
 
 ` sudo ./main` 
 
-![A sHeLl](https://github.com/VariableExp0rt/VariableExp0rt.github.io/tree/master/images/shell.png)
+![A sHeLl][logo]
+[logo]: (https://github.com/VariableExp0rt/VariableExp0rt.github.io/tree/master/images/shell.png)
 
 I found that without executing this as root, you'll have a hard time connecting to the containerd.sock socket (waaaaaah). By now you'll be staring at a no doubt blinking cursor, and if you type whatever your usual command is when dropping into a shell (ls?) then you'll see we're actually in the container (I know the functionality is a bit rough, so I'm still figuring out how to get a fully interactive tty).
 
