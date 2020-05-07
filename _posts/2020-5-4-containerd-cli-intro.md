@@ -31,9 +31,9 @@ The output will look pretty familiar if you've used "kubectl get" or "docker ps"
 
 `ctr --namespace k8s.io containers info 0b41398e452dd3eb18a2137b85bc270df63c3c826eeb3cace55ba40b43cc9e21 | jq`
 
-You'll notice that that this is essentially the yaml file used to create the pod, just in a slightly different format but could easily be reconstructed. This most closely the "-o json" in the kubectl command.
+You'll notice that that this is essentially the yaml file used to create the pod, just in a slightly different format but could easily be reconstructed. This most closely resembles the "-o json" in the kubectl command.
 
-Have you noticed that we've provided a namespace flag to the ctr command? I was at first stumped when I thought that listing containers with a namespace would implicitly mean "--all-namespaces", however it does not work this way for ctr. There is more information on the topic and implementation [here](https://github.com/containerd/containerd/blob/master/docs/namespaces.md), but the benefits here are that it makes multi-tenancy easier*.
+Have you noticed that we've provided a namespace flag to the ctr command? I was at first stumped when I thought that listing containers without a namespace would implicitly mean "--all-namespaces", however it does not work this way for ctr. There is more information on the topic and implementation [here](https://github.com/containerd/containerd/blob/master/docs/namespaces.md), but the benefits here are that it makes multi-tenancy easier*.
 
 #### Inspecting running containers
 
