@@ -37,7 +37,7 @@ Have you noticed that we've provided a namespace flag to the ctr command? I was 
 
 #### Inspecting running containers
 
-This may be limited to KIND, but I found that when I was attempting to use kubectl after accessing the nodes, it didn't work. Specifically, I wanted to quickly check the logs as a container, where I had been messing the static manifest files in /etc/kubernetes/manifests... so, I started exploring different ctr commands.
+This may be limited to KIND, but I found that when I was attempting to use kubectl after accessing the nodes, it didn't work. Specifically, I wanted to quickly check the logs of a container, where I had been messing with the static manifest files in /etc/kubernetes/manifests... so, I started exploring different ctr commands.
 
 ##### Exec-ing into a container is a little bit more difficult.
 
