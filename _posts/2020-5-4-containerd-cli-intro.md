@@ -56,7 +56,7 @@ From this output we have a list of tasks, these are just "processes" and these m
 `docker exec -ti <control plane hash> /bin/sh \
 cd /var/log/pods/<pod-to-be-inspected>`
 
-I've included some of the output below for brevity. 
+I've included some of the output below for brevity. EDIT: --exec-id <number/name> is arbitrary and can be anything, the key parameters here are this, the name/identifier(hash) and an argument. The process hierachy (ps -ef) will show you that each task is started (PID) as a child process of the containerd shim process that executed the task (the parent or PPID) = pid namespacing :)
 
 ```
 ctr --namespace k8s.io tasks exec --exec-id 674 --tty 3a239f4388ff2e512f25d7a9a451350d603b8a2657506cdbabbde52f428d9595 /bin/sh
