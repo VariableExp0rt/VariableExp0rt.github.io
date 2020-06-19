@@ -9,7 +9,7 @@ As we know, Kubernetes (k8s) is a container orchestration project, and with it c
 
 A control loop is setting an alert (watcher), triggering the action to top up when your balance reaches a certain limit, the controller in this scenario charges the bank account you specify should be linked with the service and you never run out of credit.
 
-![Figure 1. Control Loops](https://raw.githubusercontent.com/VariableExp0rt/test-controller/blob/master/_images/Untitled%20Diagram.jpg)
+![Figure 1. Control Loops](https://raw.githubusercontent.com/VariableExp0rt/VariableExp0rt.github.io/blob/master/images/control-loops.jpg)
 
 ##### Where does an Operator fit into all of this?
 
@@ -79,9 +79,9 @@ I am by no means a Golang expert, and I'm still early in my journey to understan
 
 The Controller (in action) behaves in a way I have not yet figured out because it is printing the Deployment twice when it sees the new annotation (where the arguments to these are oldObj, newObj), which could be due to the `AddFunc:` and `UpdateFunc:` both calling the function to get the deployments that match, respectively. Or it could be that there is no distinction between “Deployment” and “ReplicaSet” objects here, so both are printed (thoughts, so many thoughts). I put a couple of images below demonstrating the output you can expect if you print verbose/return deployment objects and format print the values (JSON blob).
 
-![Figure 2. Controller in action](https://raw.githubusercontent.com/VariableExp0rt/test-controller/blob/master/_images/controller-in-action.jpg)
+![Figure 2. Controller in action](https://raw.githubusercontent.com/VariableExp0rt/VariableExp0rt.github.io/blob/master/images/controller-in-action.jpg)
 
-![Figure 3. Deployment - described to view annotations](https://raw.githubusercontent.com/VariableExp0rt/test-controller/blob/master/_images/deployment.jpg)
+![Figure 3. Deployment - described to view annotations](https://raw.githubusercontent.com/VariableExp0rt/VariableExp0rt.github.io/blob/master/images/deployment.jpg)
 
 If you see a lot of print statements "seen annotation", I verified that it is only picking up our deployment in the default namespace (if that's where you create it). However, you will see some periodic updates at an interval of 10 minutes due to the SharedIndexInformer (InformerFactory, in the `main` function) which also prints "seen annotation", this is something I'm looking at :)
 
