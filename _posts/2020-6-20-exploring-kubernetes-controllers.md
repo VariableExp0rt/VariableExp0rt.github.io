@@ -9,7 +9,7 @@ As we know, Kubernetes (k8s) is a container orchestration project, and with it c
 
 A control loop is setting an alert (watcher), triggering the action to top up when your balance reaches a certain limit, the controller in this scenario charges the bank account you specify should be linked with the service and you never run out of credit.
 
-![Figure 1. Control Loops](https://raw.githubusercontent.com/VariableExp0rt/VariableExp0rt.github.io/tree/master/images/control-loops.jpg)
+![Figure 1. Control Loops](https://raw.githubusercontent.com/VariableExp0rt/VariableExp0rt.github.io/master/images/control-loops.jpg)
 
 ##### Where does an Operator fit into all of this?
 
