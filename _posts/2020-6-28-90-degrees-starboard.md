@@ -29,9 +29,9 @@ Ideally, we know that we need OPA to run as an admission controller (I’ll skip
 
 It seems with relative ease! Kube-mgmt offer a way to sync all the CRD data into OPA for evaluation, where usually you would not have to do this to enforce policies on the input into the CRDs themselves, as described above. The process for syncing such resources is detailed [here](https://github.com/open-policy-agent/kube-mgmt/blob/master/docs/admission-control-crd.md) and has the following considerations;
 
-	- You will need to provide extra permissions to kube-mgmt to replicate the data for evaluation - this is something that you might not be comfortable doing, although shouldn’t hamper performance.
-	- Scanning earlier in the pipeline (build) is preferred, where you can fail build if developers are using outdated/vulnerable images with certain heuristics ( critical_vulns > 0, for instance).
-	- OPA is fail-open, so placing all your controls at the point of deployment (as mentioned above) should be discouraged.
+- You will need to provide extra permissions to kube-mgmt to replicate the data for evaluation - this is something that you might not be comfortable doing, although shouldn’t hamper performance.
+- Scanning earlier in the pipeline (build) is preferred, where you can fail build if developers are using outdated/vulnerable images with certain heuristics ( critical_vulns > 0, for instance).
+- OPA is fail-open, so placing all your controls at the point of deployment (as mentioned above) should be discouraged.
 
 I also followed the guide set out on the OPA website, which can be found [here](https://www.openpolicyagent.org/docs/latest/kubernetes-tutorial/). This will take you through creating certificates (self-signed) for the admission controller and other associated steps before replicating the CRD data.
 
