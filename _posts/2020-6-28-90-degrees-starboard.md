@@ -1,6 +1,8 @@
 
 ### Policy-based enforcement with Open Policy Agent
 
+Edit: the policy that I was working on is now complete (there were a couple of edge cases) and can be found [here](https://github.com/VariableExp0rt/rego_snippets_and_policies/blob/master/kube-mgmt/image_vulnerabilities/src.rego)
+
 As I was watching TGI Kubernetes last week, someone asked a very interesting question that I thought would be interesting to explore. Does Starboard (by AquaSec) integrate with Open Policy Agent (OPA)? The answer is yes, you can use “kube-mgmt” to enforce policies based on that data (more on where it is stored, how it is accessed later in this post).
 
 ### An overview of Starboard
